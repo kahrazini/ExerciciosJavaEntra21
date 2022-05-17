@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>vanilla2 ex10</title>
+    </head>
+    <body>
+        <!--Crie um programa que leia o tamanho de três segmentos de reta. Analise seus comprimentos e diga se é possível formar 
+            um triângulo com essas retas. Matematicamente, para três segmentos formarem um triângulo, o comprimento de cada lado
+             deve ser menor que a soma dos outros dois.-->
+             <form action="">
+                <label for="idLadoA">Lado A</label><br>
+                <input type="number" id="idLadoA" name="nmLadoA">
+                <br>
+                <label for="idLadoB">Lado B</label><br>
+                <input type="number" id="idLadoB" name="nmLadoB">
+                <br>
+                <label for="idLadoC">Lado C</label><br>
+                <input type="number" id="idLadoC" name="nmLadoC">
+                <br>
+                <output id="idOut"></output>
+                <br><br>
+                <input type="button" value="Enviar" onclick="testarTriangulo()">
+            </form>
+            <script>
+                function testarTriangulo() {
+                    var ladoA = parseFloat(document.getElementById("idLadoA").value)
+                    var ladoB = parseFloat(document.getElementById("idLadoB").value)
+                    var ladoC = parseFloat(document.getElementById("idLadoC").value)
+    
+                    var isTriangulo = true
+    
+                    if ((ladoA + ladoB) < ladoC) {
+                        isTriangulo = false
+                    } 
+    
+                    if ((ladoB + ladoC) < ladoA) {
+                        isTriangulo = false
+                    } 
+    
+                    if ((ladoA + ladoC) < ladoB) {
+                        isTriangulo = false
+                    } 
+                    
+                    if (isTriangulo) {
+                        document.getElementById("idOut").value = "É Possível formar um triângulo"
+                    } else {
+                        document.getElementById("idOut").value = "Não é Possível formar um triângulo"
+                    }
+    
+                }
+    
+            </script>             
+    </body>
+</html>

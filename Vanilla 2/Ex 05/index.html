@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vanilla2 ex5</title>
+    </head>
+    <body>
+        <!--Elabore um algoritmo que verifica se o número digitado é par ou ímpar.
+
+            A primeira pergunta que podemos fazer é: Como verifico na vida real se um número e par ou impar? 
+            Por exemplo, 2, 4, 5, 10, 17. Certamente você sabe que dentre os números apresentados, 2, 4 e 10 
+            são pares e que 5 e 17 são ímpares. Mas, como você sabe? - 
+            Sabemos que um número é par se ele for divisível por 2, ou seja, o resto da divisão por 2 é 0 (zero). 
+            Caso contrário, o número é ímpar.-->
+        
+        <form action="">
+            <label for="idNum">Número</label>
+            <input type="number" name="nmNumero" id="idNum">
+            <br><br>
+            <output id="idOut"></output>
+            <br><br>
+            <input type="button" value="Testar Num" onclick="testarNum()">
+
+        </form>
+        <script>
+            function testarNum(){
+                var numero = Number(document.getElementById("idNum").value)
+                var saida = document.getElementById("idOut")
+
+                if ((numero % 2) == 0) {
+                    saida.value = "0 numero é Par"
+                } else {
+                    saida.value = "0 numero é Ímpar"
+                }
+            }
+        </script>
+
+
+
+
+
+
+
+
+            
+    </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vanilla2 - Ex01</title>
+    </head>
+    <body>
+        <!--Crie um algoritmo que leia um número, se ele for maior que 20, divida o número por 2.-->
+        <form action="">
+            <label for="idNum1">Número</label><br>
+            <input type="number" id="idNum" name="nmNum">
+
+            <br><br>
+            <output id="idOut">Resultado: </output>
+            <br><br>
+            <input type="button" value= "testar" onclick="TestarNumero()">
+            <br><br>
+        </form>
+
+        <script>
+            function TestarNumero(){
+                var numero = Number(document.getElementById(idNum).value)
+                if (numero > 20) {
+                    resultado = numero / 2                
+                }else {
+                    resultado = numero
+
+                }
+
+                document.getElementById("idOut"). value = "resultado: " + value
+            }
+
+
+        </script>
+
+
+
+        <!--
+        <label for="idNum1">Este número</label><br>
+        <input type="number" id="idNum1" name="nmNum1">
+        <br><br>
+
+        <label for="idResul">Resultado</label><br>
+        <input type="text" id="idResul" name="nmResul">
+        <br><br>
+        <output id="idOut">Resultado</output>
+        <br><br>
+        <input type="button" onclick="Maior()" value="Calcular">
+        <br><br>-->
+
+        <!--<script>
+                //function Maior(){
+                    var num1
+                    var num2 = 2
+                    var Resultado
+                
+                }
+                if (num1 <20){
+                    document.getElementById("idOut").value = "Resultado: " + (num1 / num2).toFixed(2)
+                } else {
+                //falso
+                    resultado = "idNum1"
+                }         
+                var altura = Number(document.getElementById("idAltura").value)
+                document.getElementById("idOut").value = "Peso Ideal: " + ((62.1 * altura) - 44.7).toFixed(2)
+        </script>
+-->
+
+
+    </body>
+</html>

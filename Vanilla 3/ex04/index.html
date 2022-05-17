@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>vanilla 3 - ex4</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="idNum">Numero: </label>
+            <input type="number" id="idNum" name="nmNum">
+            <br><br>
+            <output id="idOut"></output>
+            <br><br>
+            <input type="button" value="Enviar" onclick="enviarNumeros()">
+
+
+        </form>
+        <script>
+          
+            function enviarNumero(){
+                const numero = Number(document.getElementById("idNum").value)
+                let out = document.getElementById("idOut")
+                if (numero >= 30 && numero <= 90){
+                    out.value = "O número (" + numero +") está no intervalo"
+                } else {
+                    out.value = "O número (" + numero +") não está no intervalo"
+                }          
+            }
+        </script>
+    </body>
+</html>
