@@ -8,23 +8,27 @@
     </head>
     <body>
         <form action="">
-            <input type="number" ind="idnum1" name="nmNum1" placeholder="Numero 1" > <br><br>
-            <input type="number" ind="idnum2" name="nmNum1" placeholder="Numero 2" > <br>
+            <input type="number" id="idNum1" name="nmNum1" placeholder="Numero 1"><br><br>
+            <input type="number" id="idNum2" name="nmNum2" placeholder="Numero 2"><br>
             <output id="idOut"></output><br><br>
             <input type="button" value="Testar Numeros" onclick="testarNumeros()">
 
-
         </form>
-        <script>
-            let num1 = Number(document.getElementById("idNum1").value)
-            let num2 = Number(document.getElementById("idNum2").value)
 
-            let out = document.getElementById("idOut")
-            if (condition) {
-                
-            } else {
-                
+        <script>
+            
+            function testarNumeros() {
+                let num1 = Number(document.getElementById("idNum1").value)
+                let num2 = Number(document.getElementById("idNum2").value)
+
+                let out = document.getElementById("idOut")
+                if (num1 > num2) {
+                    out.value = "O número " + num1 + " é maior que " + num2
+                } else {
+                    out.value = "O número " + num2 + " é maior que " + num1
+                }
             }
+
         </script>
         
     </body>
