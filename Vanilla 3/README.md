@@ -1,5 +1,7 @@
 # ExerciciosJavaEntra21
+
 Exercícios
+
 1)Elabore um algoritmo que permita a entrada de dois números diferentes e verifique qual deles é o maior.
 
 2)Elabore um algoritmo que permita a entrada de três números e imprima o maior deles.
