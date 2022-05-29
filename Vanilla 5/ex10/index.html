@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla 6 ex10</title>
+</head>
+    <body>
+        <form action="">
+            <fieldset>
+                <legend>Cotação Atual:</legend>
+                <label for="idMoedas">Real</label><br>
+                <input type="number" id="idReal" step="0.01" value="1"><br>
+                <label for="idMoedas">Dolar Americano</label><br>
+                <input type="number" id="idDolarAmericano" step="0.01" value="4.73"><br>
+                <label for="idMoedas">Euro</label><br>
+                <input type="number" id="idEuro" step="0.01" value="5.08"><br>
+                <label for="idMoedas">Libra Esterlina</label><br>
+                <input type="number" id="idLibraEsterlina" step="0.01" value="5.97"><br>
+                <label for="idMoedas">Dolar Canadense</label><br>
+                <input type="number" id="idDolarCanadense" step="0.01" value="3.72">
+            </fieldset>
+            <fieldset>
+                <legend>Entrada </legend>
+                <label for="idMoedas">Escolha a moeda:</label><br>
+                <input list="idListaMoedas" id="idMoedas" name="nmMoedas">
+                
+                <datalist id="idListaMoedas">
+                    <option value="Real">
+                    <option value="Dolar Americano">
+                    <option value="Euro">
+                    <option value="Libra Esterlina">
+                    <option value="Dolar Canadense">
+                </datalist>
+            
+                <br><br>
+                <label for="idValor">Insira a quantidade:</label><br>
+                <input type="number" id="idValor" name="nmValor">
+            </fieldset>
+            <fieldset>
+                <legend>Converter para:</legend>
+                <label for="idMoedas2">Escolha para qual moeda deseja converter:</label><br>
+                <input list="idListaMoedas2" id="idMoedas2" name="nmMoedas2">
+                
+                <datalist id="idListaMoedas2">
+                    <option value="Real">
+                    <option value="Dolar Americano">
+                    <option value="Euro">
+                    <option value="Libra Esterlina">
+                    <option value="Dolar Canadense">
+                </datalist>
+                <br><br>
+                <input type="button" id="idButton" value="Converter" onclick="converterMoedas()">
+                <br><br>
+                <output id="idOutMoeda">Conversão:</output>
+
+            </fieldset>
+            
+        </form>        
+        <script>
+
+            var quantMoeda = parseFloat(document.getElementById("idValor").value)
+            var moedaEntrada = document.getElementById('idMoedas').value;
+            var moedaSaida = document.getElementById('idMoedas2').value;
+            var realHoje = document.getElementById('idReal').value;
+            var dolarCanHoje = document.getElementById('idDolarAmericano').value;
+            var dolarAmeHoje = document.getElementById('idDolarCanadense').value;
+            var libraHoje = document.getElementById('idLibraEsterlina').value;
+            var euroHoje = document.getElementById('idEuro').value;
+
+            function converterMoedas(){
+                var moedaEntrada = "",
+                    valorConvertido;
+
+                moedaEntrada = document.getElementById("idMoedas").value
+                valor = document.getElementById('idValor').value;
+                moedaSaida = document.getElementById("idMoedas2").value
+
+                if(moedaEntrada == 'Real') {
+                    if(moedaSaida == 'Dolar Americano') {
+                        valorConvertido = valor / dolarAmeHoje;
+                    } else if(moedaSaida == 'Euro') {
+                        valorConvertido = valor / euroHoje;
+                    } else if(moedaSaida == 'Libra Esterlina') {
+                        valorConvertido = valor / libraHoje;
+                    } else if(moedaSaida == 'Dolar Canadense') {
+                        valorConvertido = valor / dolarCanHoje;
+                    } else {
+                        valorConvertido = valor;
+                    }
+                } else if(moedaEntrada == 'Dolar Americano') {
+                    var valorReal = valor * dolarAmeHoje
+                    if(moedaSaida == 'Real') {
+                        valorConvertido = valorReal;
+                    } else if(moedaSaida == 'Euro') {
+                        valorConvertido = valorReal / euroHoje;
+                    } else if(moedaSaida == 'Libra Esterlina') {
+                        valorConvertido = valorReal / libraHoje;
+                    } else if(moedaSaida == 'Dolar Canadense') {
+                        valorConvertido = valorReal / dolarCanHoje;
+                    } else {
+                        valorConvertido = valor;
+                    }
+                } else if(moedaEntrada == 'Euro') {
+                    var valorReal = valor * euroHoje;
+                    if(moedaSaida == 'Real') {
+                        valorConvertido = valorReal;
+                    } else if(moedaSaida == 'Dolar Americano') {
+                        valorConvertido = valorReal/ euroHoje;
+                    } else if(moedaSaida == 'Libra Esterlina') {
+                        valorConvertido = valorReal/ libraHoje;
+                    } else if(moedaSaida == 'Dolar Canadense') {
+                        valorConvertido = valorReal/ dolarCanHoje;
+                    } else {
+                        valorConvertido = valor;
+                    }
+                } else if(moedaEntrada == 'Libra Esterlina') {
+                    var valorReal = valor * libraHoje;
+                    if(moedaSaida == 'Real') {
+                        valorConvertido = valorReal;
+                    } else if(moedaSaida == 'Euro') {
+                        valorConvertido = valorReal/ euroHoje;
+                    } else if(moedaSaida == 'Dolar Americano') {
+                        valorConvertido = valorReal/ libraHoje;
+                    } else if(moedaSaida == 'Dolar Canadense') {
+                        valorConvertido = valorReal/ dolarCanHoje;
+                    } else {
+                        valorConvertido = valor;
+                    }
+                } else if(moedaEntrada == 'Dolar Canadense') {
+                    var valorReal = valor * dolarCanHoje;
+                    if(moedaSaida == 'Real') {
+                        valorConvertido = valorReal;
+                    } else if(moedaSaida == 'Euro') {
+                        valorConvertido = valorReal/ euroHoje;
+                    } else if(moedaSaida == 'Libra Esterlina') {
+                        valorConvertido = valorReal/ libraHoje;
+                    } else if(moedaSaida == 'Dolar Americano') {
+                        valorConvertido = valorReal/ dolarCanHoje;
+                    } else {
+                        valorConvertido = valor;
+                    }
+                }
+                document.getElementById("idOutMoeda").value = moedaSaida + ': ' + valorConvertido;
+
+
+
+            }
+
+
+        </script>
+    </body>
+</html>

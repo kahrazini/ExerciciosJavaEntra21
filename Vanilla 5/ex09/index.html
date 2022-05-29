@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>vanilla 5 - ex09</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="idTemperatura">Temperatura</label><br>
+            <input type="number" id="idTemperatura" name="nmTemp" step="0.01">
+            <br><br>
+            <input type="radio" name="nmTemperatura" id="idCelsius" checked>
+            <label for="idCelsius">Celsius</label>
+            <input type="radio" name="nmTemperatura" id="idFahrenheit">
+            <label for="idFahrenheit">Fahrenheit</label>
+            <input type="radio" name="nmTemperatura" id="idKelvin">
+            <label for="idKelvin">Kelvin</label>
+            <br><br>
+            <button type="button" onclick="converter()">Converter</button><br><br>
+            <output id="idOutCelsius"></output><br>
+            <output id="idOutFahrenheit"></output><br>
+            <output id="idOutKelvin"></output><br>
+
+        </form>
+        <script>
+           
+
+            function converter() {
+                let temp = parseFloat(document.getElementById("idTemperatura").value),
+                    tipoTemp = '',
+                    fahrenheit = null, 
+                    celsius= null,
+                    kelvin = null;
+                if(document.getElementById("idCelsius").checked) {
+                    tipoTemp = 'C'
+                } else if(document.getElementById("idFahrenheit").checked) {
+                    tipoTemp = 'F'
+                } else if(document.getElementById("idKelvin").checked) {
+                    tipoTemp = 'K'
+                }
+
+                celsius = converterCelsius(temp, tipoTemp);
+                fahrenheit = converterFahrenheit(temp, tipoTemp);
+                kelvin = converterKelvin(temp, tipoTemp);
+             
+
+                console.log("Fahrenheit: " + fahrenheit);
+                console.log("Celsius: " + celsius);
+                console.log("Kelvin: " + kelvin);
+                
+                document.getElementById("idOutFahrenheit").value = "Fahrenheit: " + fahrenheit + '°'
+                document.getElementById("idOutCelsius").value = "Celsius: " + celsius + '°'
+                document.getElementById("idOutKelvin").value = "Kelvin: " + kelvin + '°'
+            }
+
+            function converterCelsius (temp, tipo){
+                let tempC ; 
+                if (tipo == 'F') {
+                    tempC = ((temp - 32) * 5/9);
+                } else if (tipo == 'K') {
+                    tempC = temp - 273;
+                } else {
+                    tempC = temp
+                }
+
+                return tempC;
+                
+            }
+
+            function converterFahrenheit(temp, tipo) {
+                let tempF ;
+                if (tipo == 'C') {
+                    tempF = (9 * temp + 160) / 5
+                } else if (tipo == 'K') {
+                    tempF = ((temp) * (9/5)) -  459.67
+                } else {
+                    tempF = temp
+                }
+
+                return tempF;
+                
+            }
+
+
+            function converterKelvin(temp, tipo) {
+                let tempK ; 
+                if (tipo == 'F') {
+                    tempK = ((temp) + 459.67) * (5/9)
+                } else if (tipo == 'C') {
+                    tempK = temp + 273;
+                } else {
+                    tempK = temp
+                }
+
+                return tempK;
+                
+            }
+
+            
+
+            /* recebe o valor;
+            escolhe qual é a unidade de medida de temperatura dele
+            e o valor deverá ser convertido para as outras duas unidades */
+
+
+        </script>
+    </body>
+</html>
