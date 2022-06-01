@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>vanilla 7 ex01</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="idNota">Nota</label><br>
+            <input type="number" id="idNota" name="nmNota">
+            <br><br>
+            <input type="button" value="Enviar" onclick="enviar()">
+            <br><br>
+            <label for="idOutMediaNota">Média das Notas: </label>
+            <output id="idOutMediaNota"></output>
+            <br>
+            <label for="idAcimaMedia">Quantidade de pessoas acima da média: </label>
+            <output id="idAcimaMedia"></output>
+            <br>
+            <label for="idMaiorNota">Maior Nota: </label>
+            <output id="idMaiorNota"></output>
+            <br>
+            <label for="idPosicaoMaior">Posição da Maior Nota: </label>
+            <output id="idPosicaoMaior"></output>
+            <br>
+        </form>
+
+        <script>
+
+            var somaNota = 0 
+            var contNotas = 0 
+            var mediaNota = 0
+            var contAcimaMedia = 0 
+            var contPosicao = 0
+            var maiorNota = -1
+            var posicaoMaiorNota = 0
+
+            function enviar() {
+                //- Adquire a nota digitada na tela
+                let Nota = Number(document.getElementById("idNota").value)
+                //- somar a nota em somaNotas e incrementar contador de notas (contNotas)
+                somaNota = somaNota + Nota
+                contNotas++ 
+                //- Calcular a média de notas 
+                mediaNota = (somaNota/contNotas).toFixed(2)
+                //- descobrir se as notas digitadas acima da media 7 e incrementar contAcimaMedia
+                if (Nota > 7){
+                    contAcimaMedia++
+                }
+                //- descobrir se a nota digitada é maior do que as notas digitadas antes
+                if (Nota > maiorNota) {
+                    maiorNota = Nota
+                    posicaoMaiorNota = contNotas
+                }
+                //- dar saída dos dados 
+
+                document.getElementById("idOutMediaNota").value = mediaNota
+                document.getElementById("idAcimaMedia").value = contAcimaMedia
+                document.getElementById("idMaiorNota").value = maiorNota
+                document.getElementById("idPosicaoMaior").value = posicaoMaiorNota
+                
+            }
+
+        </script>
+
+
+    </body>
+</html>
