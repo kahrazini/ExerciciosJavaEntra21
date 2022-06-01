@@ -21,7 +21,7 @@
     </form>
 
     <script>
-        //- sortear um número assim que carregar a tela (escopo global)
+        //- orientação:sortear um número assim que carregar a tela (escopo global)
         var numeroSorteado = parseInt(Math.random() * 11)
         if (numeroSorteado == 0) {
             numeroSorteado = 1
@@ -32,13 +32,13 @@
         var msnSaida = document.getElementById("idOutMensagem")
 
         function enviar() {
-            //- adquirir o número digitado 
+            //- - orientação:adquirir o número digitado 
             let numeroApostado = Number(document.getElementById("idNumeroApostado").value)
             //- somar a tentativa do jogador (tentativa++)
             tentativa++
-            //- testar se a quantidade de tentativas é superior a 3, se for dar saída fim de jogo (jogo perdido)
+            //- - orientação:testar se a quantidade de tentativas é superior a 3, se for dar saída fim de jogo (jogo perdido)
             if (tentativa <= 3) {
-                //- descobrir se o número digitado é igual ao número sorteado, dar saída de acordo com as regras abaixo 
+                //- - orientação:descobrir se o número digitado é igual ao número sorteado, dar saída de acordo com as regras abaixo 
                 //    - "Vc Venceu!" se o numeroSorteado == numeroDigitado
                 //    - "O Apostado é menor que sorteado" se o numeroSorteado > numeroDigitado
                 //    - "O Apostado é maior que sorteado" se o numeroSort
