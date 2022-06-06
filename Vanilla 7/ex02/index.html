@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>vanilla 7 - ex 02</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="idNome">Nome:</label><br>
+            <input type="text" id="idNome">
+            <br>
+            <label for="idIdade">Idade:</label><br>
+            <input type="number" id="idIdade">
+            <br><br>
+            <input type="button" value="Incluir" onclick="incluir()">
+            <input type="button" value="Relatório" onclick="imprimirRel()">
+        </form>
+
+        <script>
+            var nomes = []
+            var idades = []
+
+            function incluir() {
+                let nome = document.getElementById("idNome").value
+                nomes.push(nome)
+                document.getElementById("idNome").value = ""
+                console.log(nomes);
+                
+            }
+
+            function incluir() {
+                let idades = document.getElementById("idIdade").value
+                idades.push(idade)
+                document.getElementById("idIdade").value = ""
+                console.log(idades);
+            }
+
+            function imprimirRel() {
+                let idadeMenores = []
+                for (let i = 0; i < 18; i++) {
+                    idadeMenores.unshift(idades[i]);
+                    console.log(idadeMenores);
+                }
+
+            }
+
+            function imprimirRel() {
+                let nomesMenores = []
+                for (let i = 0; i < nomes.length; i++) {
+                    nomesMenores.unshift(nomes[i]);
+                    console.log(nomesMenores);
+                }
+
+            }
+            console.table(nomesMenores)
+
+
+        </script>
+
+    </body>
+</html>
