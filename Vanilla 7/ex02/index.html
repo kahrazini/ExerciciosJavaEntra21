@@ -8,55 +8,70 @@
     </head>
     <body>
         <form action="">
-            <label for="idNome">Nome:</label><br>
-            <input type="text" id="idNome">
-            <br>
-            <label for="idIdade">Idade:</label><br>
-            <input type="number" id="idIdade">
-            <br><br>
-            <input type="button" value="Incluir" onclick="incluir()">
-            <input type="button" value="Relatório" onclick="imprimirRel()">
+            <div>
+            <input type="text" id="idNome" placeholder="Nome">
+            </div>
+            <div>
+            <input type="number" id="idIdade" placeholder="Idade">
+            </div>
+            <div>
+            <input type="button" value="Cadastrar" id="idBotaoCadastrar()">
+            <input type="button" value="Relatório" id="idBotaoRelatorio()">
+            </div>
+            <div>
+            <output id="idOut"></output>
+            </div>
         </form>
-
         <script>
-            var nomes = []
-            var idades = []
 
-            function incluir() {
-                let nome = document.getElementById("idNome").value
-                nomes.push(nome)
-                document.getElementById("idNome").value = ""
-                console.log(nomes);
-                
-            }
+            var idBotaoCadastrar = document.getElementById("idBotaoCadastrar")
+            var idBotaoRelatorio = document.getElementById("idBotaoRelatorio")
+            var saida = document.getElementById("idOut")
 
-            function incluir() {
-                let idades = document.getElementById("idIdade").value
-                idades.push(idade)
-                document.getElementById("idIdade").value = ""
-                console.log(idades);
-            }
+                 //para cadastrar
+            idBotaoCadastrar.onclick = function () {
+               let nome = document.getElementById("idNome").value
+               let idade = Number(document.getElementById("idIdade").value)
 
-            function imprimirRel() {
-                let idadeMenores = []
-                for (let i = 0; i < 18; i++) {
-                    idadeMenores.unshift(idades[i]);
-                    console.log(idadeMenores);
-                }
+               if (nome == "" || nome == " ") {
+                    saida.value = "Preenchimento obrigatório: Campo Nome"
+                    document.getElementById("idNome").focus                  
+               } else{
+                    nomes.push(nome)
+               }
 
-            }
 
-            function imprimirRel() {
-                let nomesMenores = []
-                for (let i = 0; i < nomes.length; i++) {
-                    nomesMenores.unshift(nomes[i]);
-                    console.log(nomesMenores);
-                }
+               if (idade < 0 || idade > 130) {
+                    saida.value = "Idade Inválida"
+                    document.getElementById("id|Idade").focus                                   
+               } else{
+                    idades.push(idade)
+               }
+
+               document.getElementById("idNome").value = ""
+               document.getElementById("idIdade").value = ""
+
+               console.log(nomes);
+               console.log(idades);
 
             }
-            console.table(nomesMenores)
 
+                //para emitir o relatorio dos dados
+            idBotaoRelatorio.onclick = function () {
+                idades.forEach((idade, index) => {
+                    if (idade < 18) {
+                        menoresDeIdade.push(index)
 
+                    }
+                });
+                menoresDeIdade.forEach(indMenorIdade => {
+                    nomesMenordeIdade.push(nomes[indMenorIdade])
+
+                })
+
+                saida.value = "Menores de Idade" + nomesMenordeIdade.toString()
+            }
+            
         </script>
 
     </body>
