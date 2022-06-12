@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanilla 7 - 2</title>
+    <title>Vanilla 7 - 3</title>
 
     <style>
         /* para a mensagem sair em outra cor*/
@@ -21,7 +21,13 @@
             <input type="text" id="idNome" placeholder="Nome...">
         </div>
         <div>
-            <input type="number" id="idIdade" placeholder="Idade">
+            <input type="number" id="idSalario" placeholder="Salario">
+        </div>
+        <div>
+            <input type="radio" name="nmGenero" id="idFem" checked>
+            <label for="idFem">Feminino</label>
+            <input type="radio" name="nmGenero" id="idMasc">
+            <label for="idMasc">Masculino</label>
         </div>
         <div>
             <input type="button" value="Cadastrar" id="idBtCadastrar">
@@ -36,9 +42,9 @@
     <script>
         //"var"iaveis
         var nomes = []
-        var idades = []
-        var menoresDeIdade = []
-        var nomesMenorDeIdade = []
+        var salario = []
+        var maiorSalario = []
+        var nomeMaiorSalario = []
         var btCadastrar = document.getElementById("idBtCadastrar")
         var btRelatorio = document.getElementById("idBtRelatorio")
         var saida = document.getElementById("idOut")
@@ -48,30 +54,30 @@
             
             adquirirDadosTela()
             document.getElementById("idNome").value = ""
-            document.getElementById("idIdade").value = ""
+            document.getElementById("idSalario").value = ""
 
             console.log(nomes);
-            console.log(idades);
+            console.log(salario);
         }
 
-        /* para descobrir os menores de idade */
+        /* para descobrir os maiores salários */
         btRelatorio.onclick = function () {
             //  comentário prof: Iterar o array de idades buscando os 
             //     indices das posições que contém valor < 18 
-            idades.forEach((idade, index) => {
-                if (idade < 18) {
-                    menoresDeIdade.push(index)
+            salario.forEach((salario, index) => {
+                if (salario > 5000) {
+                    maiorSalario.push(index)
                 }
             });
 
             //Acessar o array de nomes pelos indices e salvar
 
-            menoresDeIdade.forEach(indMenorIdade => {
-                nomesMenorDeIdade.push(nomes[indMenorIdade])
+            maiorSalario.forEach(indMaiorSalario => {
+                nomeMaiorSalario.push(nomes[indMaiorSalario])
             })
 
             //relatório 
-            saida.value = "Menores de Idade: " + nomesMenorDeIdade.toString()
+            saida.value = "Maiores Salários: " + nomeMaiorSalario.toString()
         }
 
 
@@ -82,10 +88,10 @@
                 saida.value = ""
                 saida.classList.remove("alerta")
 
-                let idade = document.getElementById("idIdade").value
-                let isIdadeValida = consistirIdade(idade)
-                if (isIdadeValida) {
-                    idades.push(idade)
+                let salario = document.getElementById("idSalario").value
+                let isSalarioValido = consistirSalario(salario)
+                if (isSalarioValido) {
+                    salario.push(salario)
                     nomes.push(nome)
                     saida.value = ""
                     saida.classList.remove("alerta")
@@ -106,9 +112,9 @@
         }
 
 
-        function consistirIdade(idade) {
-            if (idade < 0 || idade > 130 || idade == "") {
-                saida.value = "Idade inválida"
+        function consistirSalario(salario) {
+            if (salario < 0 || salario > 10000000 || salario == "") {
+                saida.value = "Salário inválido"
                 saida.classList.add("alerta")
                 document.getElementById("idNome").focus()
                 return false
