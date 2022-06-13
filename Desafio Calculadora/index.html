@@ -57,8 +57,8 @@
                 <table>
                     <tr>
                         <td><button class="button" onclick="salvanumero()">MS</button></td>
-                        <td><button class="button">M+</button></td>
-                        <td><button class="button">M-</button></td>
+                        <td><button class="button" onclick="somarNumero()">M+</button></td>
+                        <td><button class="button" onclick="menosNumero()">M-</button></td>
                         <td><button class="button" onclick="recuperanumero()">MR</button></td>
                         
                     </tr>
@@ -142,16 +142,13 @@
 
             //função do M+
             function somarNumero(){
-                numeroSalvo + document.getElementById("idresultado").value = ""
+                document.getElementById("idresultado").value = eval(document.getElementById("idresultado").value +"+"+ numeroSalvo)
             }
 
             //função do M-
             function menosNumero(){
-                
-            }
-
-
-        
+                document.getElementById("idresultado").value = eval(document.getElementById("idresultado").value +"-"+ numeroSalvo) 
+            }      
 
         </script>
     </body>
